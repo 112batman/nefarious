@@ -5,6 +5,7 @@ from nefarious.models import NefariousSettings
 
 SEARCH_MEDIA_TYPE_TV = 'tv'
 SEARCH_MEDIA_TYPE_MOVIE = 'movie'
+SEARCH_MEDIA_TYPE_ANIME = 'anime'
 
 
 class SearchTorrents:
@@ -14,7 +15,7 @@ class SearchTorrents:
     nefarious_settings: NefariousSettings
 
     def __init__(self, media_type: str, query: str):
-        assert media_type in [SEARCH_MEDIA_TYPE_TV, SEARCH_MEDIA_TYPE_MOVIE]
+        assert media_type in [SEARCH_MEDIA_TYPE_TV, SEARCH_MEDIA_TYPE_MOVIE, SEARCH_MEDIA_TYPE_ANIME]
         self.nefarious_settings = NefariousSettings.get()
 
         params = {
@@ -35,11 +36,14 @@ class SearchTorrents:
     def _categories(self, media_type: str) -> list:
         # https://github.com/nZEDb/nZEDb/blob/dev/docs/newznab_api_specification.txt
         cat_movies = [2000, 2010, 2030, 2040, 2050, 2060, 2070]
-        cat_tv = [5000, 5010, 5020, 5030, 5040, 5060, 5070, 5080]
+        cat_tv = [5000, 5010, 5020, 5030, 5040, 5060, 5080]
+        cat_anime = [5070]
         if media_type == SEARCH_MEDIA_TYPE_MOVIE:
             return cat_movies
-        else:
+        elif media_type == SEARCH_MEDIA_TYPE_TV:
             return cat_tv
+        else:
+            return cat_anime
 
 
 class SearchTorrentsCombined:

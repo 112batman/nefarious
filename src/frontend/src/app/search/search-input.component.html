@@ -8,6 +8,10 @@
       <input class="form-check-input" [(ngModel)]="type" type="radio" name="type" id="tv" value="tv">
       <label class="form-check-label" for="tv">TV</label>
     </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" [(ngModel)]="type" type="radio" name="type" id="anime" value="anime">
+      <label class="form-check-label" for="anime">Anime</label>
+    </div>
   </div>
   <div class="d-flex">
     <input class="form-control form-control-lg" [(ngModel)]="q" name="q" required minlength="2" type="text" placeholder="Search..." autocomplete="off">
