@@ -37,7 +37,7 @@ class SearchTorrents:
         # https://github.com/nZEDb/nZEDb/blob/dev/docs/newznab_api_specification.txt
         cat_movies = [2000, 2010, 2030, 2040, 2050, 2060, 2070]
         cat_tv = [5000, 5010, 5020, 5030, 5040, 5060, 5080]
-        cat_anime = [5070]
+        cat_anime = [5070, 140679, 127720]
         if media_type == SEARCH_MEDIA_TYPE_MOVIE:
             return cat_movies
         elif media_type == SEARCH_MEDIA_TYPE_TV:
